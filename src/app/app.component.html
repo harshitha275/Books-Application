@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="/node_modules/primeicons/primeicons.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/nova-light/theme.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+
+
+<header>  
+  <h4>WELCOME TO BOOKS APPLICATION</h4>
+</header>
+<div class="container">
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user" aria-hidden="true" ></i></span>
+          <input type="text"   pInputText placeholder="ID" [(ngModel)]="books.id" required >         
+      </div>
+  </div>
+</div><br>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user" aria-hidden="true" ></i></span>
+          <input type="text"   pInputText placeholder="Title" [(ngModel)]="books.title" required >         
+      </div>
+  </div>
+</div><br>
+
+<p-button label="Submit" icon="pi pi-check" (onClick)="submit()"></p-button>
+</div>
+
+<table class="table table" >
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of booksArray">
+      <td><span>{{book.id}}</span></td>
+      <td><span>{{book.title}}</span></td>
+      <td><p-button label="Update" icon="pi pi-check" (onClick)="update(book)"></p-button></td>
+      <td><p-button label="Delete" icon="pi pi-check" (onClick)="delete(book.id)"></p-button></td>
+    </tr>
+  </tbody>
+</table>
